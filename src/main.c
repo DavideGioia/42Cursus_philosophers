@@ -6,15 +6,11 @@
 /*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:40:16 by dgioia            #+#    #+#             */
-/*   Updated: 2022/12/12 19:06:31 by dgioia           ###   ########.fr       */
+/*   Updated: 2022/12/13 19:37:16 by dgioia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
-
-void  *routine()
-{
-}
 
 int	input_checker(int argc, char **argv)
 {
@@ -22,6 +18,8 @@ int	input_checker(int argc, char **argv)
 	int j;
 
 	if (argc < 5 || argc > 6)
+		return (1);
+	if (ft_atoi(argv[1]) > 200)
 		return (1);
 	i = 1;
 	while(argv[i])
