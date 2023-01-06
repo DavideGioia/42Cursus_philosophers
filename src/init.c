@@ -6,7 +6,7 @@
 /*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 18:02:13 by dgioia            #+#    #+#             */
-/*   Updated: 2023/01/04 06:53:48 by dgioia           ###   ########.fr       */
+/*   Updated: 2023/01/06 16:27:37 by dgioia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	init_alloc(t_data *data)
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->philo_n);
 	data->philos = malloc(sizeof(t_philo) * data->philo_n);
 	if (!data->tid || !data->forks || !data->philo_n)
-		return (1);
+		return (error(data));
 	return (0);
 }
 
@@ -76,6 +76,7 @@ int	init_data(t_data *data, int argc, char **argv)
 	data->finished = 0;
 	pthread_mutex_init(&data->write, NULL);
 	pthread_mutex_init(&data->lock, NULL);
+	return (0);
 }
 
 int	init(t_data *data, int argc, char **argv)

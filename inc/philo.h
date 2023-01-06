@@ -6,7 +6,7 @@
 /*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 19:14:11 by dgioia            #+#    #+#             */
-/*   Updated: 2023/01/04 07:06:39 by dgioia           ###   ########.fr       */
+/*   Updated: 2023/01/06 16:20:47 by dgioia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,6 @@ void	message(char *str, t_philo *philo);
 
 void	*routine(void *philo_ptr);
 void	ft_free (t_data *data);
+int	error(t_data *data);
+int	input_checker(int argc, char **argv);
 #endif

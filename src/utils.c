@@ -6,7 +6,7 @@
 /*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 18:18:11 by dgioia            #+#    #+#             */
-/*   Updated: 2022/12/23 22:45:20 by dgioia           ###   ########.fr       */
+/*   Updated: 2023/01/06 16:20:16 by dgioia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,23 @@ int	ft_usleep(useconds_t time)
 		usleep(time / 10);
 	return (0);
 }
+
+int	input_checker(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	if (argc < 5 || argc > 6)
+		return (1);
+	if (ft_atoi(argv[1]) > 200)
+		return (1);
+	i = 1;
+	while (argv[i])
+	{
+		if (ft_atoi(argv[i]) <= 0)
+			return (error(NULL));
+		i++;
+	}
+	return (0);
+}
+

@@ -6,7 +6,7 @@
 /*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 18:23:07 by dgioia            #+#    #+#             */
-/*   Updated: 2023/01/04 06:57:47 by dgioia           ###   ########.fr       */
+/*   Updated: 2023/01/06 16:19:08 by dgioia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 long int	get_time(void)
 {
 	struct timeval	tv;
-	
+
 	if (gettimeofday(&tv, NULL))
 		return (1);
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
@@ -89,19 +89,19 @@ int	thread_init(t_data *data)
 	if (data->cycles > 0)
 	{
 		if (pthread_create(&t0, NULL, &monitor, &data->philos[0]))
-			return (1);
+			return (error(data));
 	}
 	while (++i < data->philo_n)
 	{
 		if (pthread_create(&data->tid[i], NULL, &routine, &data->philos[i]))
-			return (1);
+			return (error(data));
 		ft_usleep(1);
 	}
 	i = -1;
 	while (++i < data->philo_n)
 	{
 		if (pthread_join(data->tid[i], NULL))
-			return (1);
+			return (error(data));
 	}
 	return (0);
 }
