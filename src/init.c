@@ -6,7 +6,7 @@
 /*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 18:02:13 by dgioia            #+#    #+#             */
-/*   Updated: 2022/12/13 19:35:31 by dgioia           ###   ########.fr       */
+/*   Updated: 2023/01/04 06:53:48 by dgioia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ int	init_data(t_data *data, int argc, char **argv)
 	data->time_to_eat = ft_atoi(argv[3]);
 	data->time_to_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
-		data->meals_nb = (int) ft_atoi(argv[5]);
+		data->cycles = (int) ft_atoi(argv[5]);
 	else
-		data->meals_nb = -1;
+		data->cycles = -1;
 	data->dead = 0;
 	data->finished = 0;
 	pthread_mutex_init(&data->write, NULL);
